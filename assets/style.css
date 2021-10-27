@@ -1,4 +1,8 @@
 
+.table-box {
+    background-color:#84b1e9;
+  }
+
 .hero {
     background: #306aa0; 
   }
@@ -6,4 +10,10 @@
   .title {
     font-size: 48px;
     color: #fff;
+  }
+
+  #submit {
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #306aa0;
   }
