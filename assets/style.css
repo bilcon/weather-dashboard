@@ -11,7 +11,7 @@
 }
 
 .table-box {
-    background-color:#84b1e9;
+  background-color:#84b1e9;
 }
 
 tr {
@@ -22,19 +22,21 @@ tr {
   background-color: #a5b1c2;
   margin: 5px;
   min-height: 300px;
+  margin-bottom: 15px;
 }
 
 .hero {
-    background: #306aa0; 
+  background: #306aa0; 
 }
 
 .title {
-    font-size: 48px;
-    color: #fff;
+  font-size: 48px;
+  color: #fff;
 }
 
 #submit {
-    width: 100%;
-    margin-bottom: 20px;
-    background-color: #306aa0;
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: #306aa0;
 }
+
