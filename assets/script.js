@@ -14,6 +14,25 @@ $(document).ready(function () {
     var city;
     var cities;
 
+    $("#submit").on("click", (e) => {
+        e.preventDefault();
+        getCity();
+        search();
+        $("#city-input").val("");
+        listCities();
+    });
+
+    function getCity() {
+        city = $("#city-input").val();
+        if (city && cities.includes(city) === false) {
+          saveToLocalStorage();
+          return city;
+        } else if (!city) {
+          alert("Please enter a valid city");
+        }
+    }
+    
+
     $("#clr-btn").click(() => {
         localStorage.removeItem("cities");
         loadRecentCities();
