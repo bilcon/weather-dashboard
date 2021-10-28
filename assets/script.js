@@ -26,10 +26,10 @@ $(document).ready(function () {
         }
       }
     
-      loadMostRecent()
+    loadMostRecent()
     
     //function to load recently searched cities from local storage
-      function loadRecentCities() {
+    function loadRecentCities() {
         var recentCities = JSON.parse(localStorage.getItem("cities"));
     
         if (recentCities) {
@@ -37,10 +37,11 @@ $(document).ready(function () {
         } else {
           cities = [];
         }
-      }
+    }
     
-      loadRecentCities()
+    loadRecentCities()
 
+    //event handler for search city button
     $("#submit").on("click", (e) => {
         e.preventDefault();
         getCity();
@@ -49,6 +50,14 @@ $(document).ready(function () {
         listCities();
     });
 
+    //function to save searched cities to local storage
+    function saveToLocalStorage() {
+        localStorage.setItem("mostRecent", city);
+        cities.push(city);
+        localStorage.setItem("cities", JSON.stringify(cities));
+    }
+
+    //function to retrieve user inputted city name
     function getCity() {
         city = $("#city-input").val();
         if (city && cities.includes(city) === false) {
@@ -59,6 +68,7 @@ $(document).ready(function () {
         }
     }
     
+    //function to render recently searched cities to page
     function listCities() {
         $("#cityList").text("");
         cities.forEach((city) => {
@@ -66,7 +76,7 @@ $(document).ready(function () {
         });
     }
     
-      listCities();
+    listCities();
     //event handler for recently searched cities in table
     $(document).on("click", "td", (e) => {
         e.preventDefault();
@@ -75,6 +85,7 @@ $(document).ready(function () {
         search();
     });
 
+    //event handler for clear button
     $("#clr-btn").click(() => {
         localStorage.removeItem("cities");
         loadRecentCities();
