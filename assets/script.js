@@ -67,7 +67,68 @@ $(document).ready(function () {
           alert("Please enter a valid city");
         }
     }
-    
+
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=ff1fa4a811532cc7c5c027aa0e72f480";
+    var coords = [];
+
+    $.ajax({
+      url: queryURL,
+      method: "GET",
+    }).then(function (response) {
+      
+      coords.push(response.coord.lat);
+      coords.push(response.coord.lon);
+      var cityName = response.name;
+      var cityCond = response.weather[0].description.toUpperCase();
+      var cityTemp = response.main.temp;
+      var cityHum = response.main.humidity;
+      var cityWind = response.wind.speed;
+      var icon = response.weather[0].icon;
+      $("#icon").html(
+        `<img src="http://openweathermap.org/img/wn/${icon}@2x.png">`
+      );
+      $("#city-name").html(cityName + " " + "(" + NowMoment + ")");
+      $("#city-cond").text("Current Conditions: " + cityCond);
+      $("#temp").text("Current Temp (F): " + cityTemp.toFixed(1));
+      $("#humidity").text("Humidity: " + cityHum + "%");
+      $("#wind-speed").text("Wind Speed: " + cityWind + "mph");
+      $("#date1").text(day1);
+      $("#date2").text(day2);
+      $("#date3").text(day3);
+      $("#date4").text(day4);
+      $("#date5").text(day5);
+
+      getUV(response.coord.lat, response.coord.lon);
+    }).fail(function (){
+      alert("Could not get data")
+    });
+
+    //Function to get 5-day forecast and UV index and put them on page
+    function getUV(lat, lon) {
+
+      $.ajax({
+        url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly" + "&units=imperial&appid=ff1fa4a811532cc7c5c027aa0e72f480",
+        method: "GET",
+      }).then(function (response) {
+
+        //code to determine UV index severity
+        var uvIndex = response.current.uvi;
+        $("#uv-index").text("UV Index:" + " " + uvIndex);
+        if (uvIndex >= 8) {
+          $("#uv-index").css("color", "red");
+        } else if (uvIndex > 4 && uvIndex < 8) {
+          $("#uv-index").css("color", "yellow");
+        } else {
+          $("#uv-index").css("color", "green");
+        }
+        var cityHigh = response.daily[0].temp.max;
+        $("#high").text("Expected high (F): " + " " + cityHigh);    
+
+      });
+
+     
+    }
+
     //function to render recently searched cities to page
     function listCities() {
         $("#cityList").text("");
