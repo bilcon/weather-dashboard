@@ -25,13 +25,22 @@ tr {
   margin-bottom: 15px;
 }
 
+.hero img {
+  height: 400px;
+}
+
 .hero {
   background: #306aa0; 
+}
+
+.hero-body {
+  height: -1px;
 }
 
 .title {
   font-size: 48px;
   color: #fff;
+  align-items: center;
 }
 
 #submit {

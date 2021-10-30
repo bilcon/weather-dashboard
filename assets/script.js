@@ -21,7 +21,7 @@ $(document).ready(function () {
           city = lastSearch;
           search();
         } else {
-          city = "Seattle";
+          city = "Kansas City";
           search();
         }
       }
