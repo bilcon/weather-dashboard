@@ -68,6 +68,8 @@ $(document).ready(function () {
         }
     }
 
+    function search() {
+
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=ff1fa4a811532cc7c5c027aa0e72f480";
     var coords = [];
 
@@ -155,11 +157,25 @@ $(document).ready(function () {
         $("#hum4").text("Hum:" + " " + day4hum + "%");
         $("#hum5").text("Hum:" + " " + day5hum + "%");
 
+        $("#icon1").html(
+          `<img src="http://openweathermap.org/img/wn/${icon1}@2x.png">`
+        );
+        $("#icon2").html(
+          `<img src="http://openweathermap.org/img/wn/${icon2}@2x.png">`
+        );
+        $("#icon3").html(
+          `<img src="http://openweathermap.org/img/wn/${icon3}@2x.png">`
+        );
+        $("#icon4").html(
+          `<img src="http://openweathermap.org/img/wn/${icon4}@2x.png">`
+        );
+        $("#icon5").html(
+          `<img src="http://openweathermap.org/img/wn/${icon5}@2x.png">`
+        );
       });
-
-     
     }
-
+  }
+  
     //function to render recently searched cities to page
     function listCities() {
         $("#cityList").text("");
@@ -169,6 +185,7 @@ $(document).ready(function () {
     }
     
     listCities();
+
     //event handler for recently searched cities in table
     $(document).on("click", "td", (e) => {
         e.preventDefault();
