@@ -122,7 +122,27 @@ $(document).ready(function () {
           $("#uv-index").css("color", "green");
         }
         var cityHigh = response.daily[0].temp.max;
-        $("#high").text("Expected high (F): " + " " + cityHigh);    
+        $("#high").text("Expected high (F): " + " " + cityHigh);
+        
+        //forecast temp variables
+        var day1temp = response.daily[1].temp.max;
+        var day2temp = response.daily[2].temp.max;
+        var day3temp = response.daily[3].temp.max;
+        var day4temp = response.daily[4].temp.max;
+        var day5temp = response.daily[5].temp.max;
+        //forecast humidity variables
+        var day1hum = response.daily[1].humidity;
+        var day2hum = response.daily[2].humidity;
+        var day3hum = response.daily[3].humidity;
+        var day4hum = response.daily[4].humidity;
+        var day5hum = response.daily[5].humidity;
+        //forecast weather icon variables
+        var icon1 = response.daily[1].weather[0].icon;
+        var icon2 = response.daily[2].weather[0].icon;
+        var icon3 = response.daily[3].weather[0].icon;
+        var icon4 = response.daily[4].weather[0].icon;
+        var icon5 = response.daily[5].weather[0].icon;
+        //
 
       });
 
