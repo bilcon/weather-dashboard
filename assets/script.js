@@ -70,6 +70,7 @@ $(document).ready(function () {
 
     function search() {
 
+    var apiKey = "ff1fa4a811532cc7c5c027aa0e72f480";
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=ff1fa4a811532cc7c5c027aa0e72f480";
     var coords = [];
 
@@ -91,7 +92,7 @@ $(document).ready(function () {
       );
       $("#city-name").html(cityName + " " + "(" + NowMoment + ")");
       $("#city-cond").text("Current Conditions: " + cityCond);
-      $("#temp").text("Current Temp (F): " + cityTemp.toFixed(1));
+      $("#temp").text("Current Temp (F): " + cityTemp.toFixed(1) + " °F");
       $("#humidity").text("Humidity: " + cityHum + "%");
       $("#wind-speed").text("Wind Speed: " + cityWind + "mph");
       $("#date1").text(day1);
@@ -124,7 +125,7 @@ $(document).ready(function () {
           $("#uv-index").css("color", "green");
         }
         var cityHigh = response.daily[0].temp.max;
-        $("#high").text("Expected high (F): " + " " + cityHigh);
+        $("#high").text("Expected high (F): " + " " + cityHigh + " °F");
         
         //forecast temp variables
         var day1temp = response.daily[1].temp.max;
@@ -145,11 +146,11 @@ $(document).ready(function () {
         var icon4 = response.daily[4].weather[0].icon;
         var icon5 = response.daily[5].weather[0].icon;
         
-        $("#temp1").text("Temp(F):" + " " + day1temp.toFixed(1));
-        $("#temp2").text("Temp(F):" + " " + day2temp.toFixed(1));
-        $("#temp3").text("Temp(F):" + " " + day3temp.toFixed(1));
-        $("#temp4").text("Temp(F):" + " " + day4temp.toFixed(1));
-        $("#temp5").text("Temp(F):" + " " + day5temp.toFixed(1));
+        $("#temp1").text("Temp(F):" + " " + day1temp.toFixed(1) + " °F");
+        $("#temp2").text("Temp(F):" + " " + day2temp.toFixed(1) + " °F");
+        $("#temp3").text("Temp(F):" + " " + day3temp.toFixed(1) + " °F");
+        $("#temp4").text("Temp(F):" + " " + day4temp.toFixed(1) + " °F");
+        $("#temp5").text("Temp(F):" + " " + day5temp.toFixed(1) + " °F");
 
         $("#hum1").text("Hum:" + " " + day1hum + "%");
         $("#hum2").text("Hum:" + " " + day2hum + "%");
