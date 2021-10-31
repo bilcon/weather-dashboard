@@ -1,13 +1,30 @@
+.hero {
+  background: #306aa0;
+}
+
+.hero-body {
+  height: 75px;
+  margin-bottom: 50px;
+}
+
+.title {
+  font-size: 48px;
+  color: #fff;
+  text-align: center;
+}
+
 #info-section {
   padding-top: 15px;
 }
 
-#weather-data {
-  background-color: #75c0f5;
+.input {
+  text-align: center;
 }
 
-.current-city-data {
-  min-height: 300px;
+#submit {
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: #306aa0;
 }
 
 .table-box {
@@ -18,6 +35,14 @@ tr {
   margin: 5px;
 }
 
+#weather-data {
+  background-color: #75c0f5;
+}
+
+.current-city-data {
+  height: 300px;
+}
+
 .card {
   background-color: #a5b1c2;
   margin: 5px;
@@ -25,28 +50,28 @@ tr {
   margin-bottom: 15px;
 }
 
-.hero img {
-  height: 400px;
-}
+@media screen and (max-width: 480px) {
 
 .hero {
-  background: #306aa0;
-  
-}
+  height: 75px;
+
+}  
 
 .hero-body {
-  height: -1px;
+  margin-bottom: 25px;
 }
 
 .title {
-  font-size: 48px;
-  color: #fff;
-  align-items: center;
+  font-size: 24px;
+  margin-top: -25px;
 }
 
-#submit {
-  width: 100%;
-  margin-bottom: 20px;
-  background-color: #306aa0;
-}
+@media screen and (max-width: 1024px) {
+  
+  .hero-body {
+    width: 100%;
+  }
 
+
+
+}

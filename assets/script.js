@@ -78,7 +78,7 @@ $(document).ready(function () {
       url: queryURL,
       method: "GET",
     }).then(function (response) {
-      
+
       coords.push(response.coord.lat);
       coords.push(response.coord.lon);
       var cityName = response.name;
@@ -92,7 +92,7 @@ $(document).ready(function () {
       );
       $("#city-name").html(cityName + " " + "(" + NowMoment + ")");
       $("#city-cond").text("Current Conditions: " + cityCond);
-      $("#temp").text("Current Temp (F): " + cityTemp.toFixed(1) + " °F");
+      $("#temp").text("Current Temp :  " + cityTemp.toFixed(1) + " °F");
       $("#humidity").text("Humidity: " + cityHum + "%");
       $("#wind-speed").text("Wind Speed: " + cityWind + "mph");
       $("#date1").text(day1);
@@ -125,7 +125,7 @@ $(document).ready(function () {
           $("#uv-index").css("color", "green");
         }
         var cityHigh = response.daily[0].temp.max;
-        $("#high").text("Expected high (F): " + " " + cityHigh + " °F");
+        $("#high").text("Expected high :  " + " " + cityHigh + " °F");
         
         //forecast temp variables
         var day1temp = response.daily[1].temp.max;
